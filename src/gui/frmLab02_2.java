@@ -24,6 +24,25 @@ public class frmLab02_2 extends javax.swing.JFrame {
     public frmLab02_2() {
         initComponents();
     }
+    
+    public frmLab02_2(int control) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        switch(control){
+            case 0:{
+                btnWriteBinary.setEnabled(false);
+                btnWriteText.setEnabled(false);
+                break;
+            }
+            case 1:{
+                btnReadBinary.setEnabled(false);
+                btnReadText.setEnabled(false);
+            }
+            case 2:{
+                break;
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

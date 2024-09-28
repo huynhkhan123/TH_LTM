@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class MyConnection {
     public Connection getConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String URL = "jdbc:mysql://localhost:3306/quanly?user=root&password=";
             Connection con = DriverManager.getConnection(URL);
             return con;

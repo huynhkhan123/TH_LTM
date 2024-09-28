@@ -5,11 +5,15 @@
  */
 package gui;
 
+import models.User;
+
 /**
  *
  * @author Administrator
  */
 public class frmWelcome extends javax.swing.JFrame {
+
+    private User user;
 
     /**
      * Creates new form Welcome
@@ -17,11 +21,39 @@ public class frmWelcome extends javax.swing.JFrame {
     public frmWelcome() {
         initComponents();
     }
-    
-     public frmWelcome(String username) {
+
+    public frmWelcome(User user) {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText(username);
+        this.user = user;
+        showControl();
+    }
+
+    private void showControl(){
+        lblUsername.setText(user.getUsername());
+        
+        int per = user.getPer();
+        
+        System.out.println(user.getPer());
+        switch (per) {
+            case 0:{
+                lblControl.setText("Read");
+                break;
+            }
+                
+            case 1:{
+                lblControl.setText("Write");
+                break;
+            }
+                
+            case 2:
+            {
+                lblControl.setText("Full control");
+                break;
+            }
+            default:
+                break;
+        }
     }
 
     /**
@@ -38,6 +70,7 @@ public class frmWelcome extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblControl = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,12 +85,19 @@ public class frmWelcome extends javax.swing.JFrame {
         jLabel2.setText("Control: ");
 
         lblControl.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        lblControl.setText("red");
+        lblControl.setText("control");
 
-        jButton1.setText("Open Form");
+        jButton1.setText("Open Form Lab2_2");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Open Form Lab2_1");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -65,23 +105,25 @@ public class frmWelcome extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(lblControl, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
             .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsername)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblUsername))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jButton1)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblControl, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(63, 63, 63)
+                        .addComponent(jButton1)
+                        .addGap(44, 44, 44))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,9 +135,11 @@ public class frmWelcome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblControl))
-                .addGap(50, 50, 50)
-                .addComponent(jButton1)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,11 +147,20 @@ public class frmWelcome extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        frmLab02 frm = new frmLab02();
+        System.out.println(user.getPer());
+        frmLab02_2 frm = new frmLab02_2(user.getPer());
         frm.setVisible(true);
         frm.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        frmLab02 frm = new frmLab02();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +200,7 @@ public class frmWelcome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblControl;

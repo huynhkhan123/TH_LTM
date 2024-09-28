@@ -159,11 +159,11 @@ public class frmRegister extends javax.swing.JFrame {
             String username = txtUsername.getText();
             String password_hash = new String(PasswordUtils.hashPassword(txtPassword.getText()));
             String path = txtPath.getText();
-            int control = 0;
+            int control = -1;
             if (cboRead.isSelected()) {
                 control = 0;
 
-            } else if (cboRead.isSelected()) {
+            } else if (cboWrite.isSelected()) {
                 control = 1;
 
             } else {

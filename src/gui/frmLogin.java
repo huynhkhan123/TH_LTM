@@ -166,33 +166,33 @@ public class frmLogin extends javax.swing.JFrame {
         
         String username_input = txtUsername.getText();
         String password = new String(txtPassword.getText());
-//        String password_hashed = "";
-//        User user = null;
-//        try {
-//            DBAccess acc = new DBAccess();
-//            String query = "SELECT * FROM `users` WHERE username = '" + username_input + "'";
-//            ResultSet resultSet = acc.Qury(query);
-//            while(resultSet.next()){
-//                int id = resultSet.getInt("id");
-//                String username = resultSet.getString("username");
-//                String path = resultSet.getString("path");
-//                String password_hash = resultSet.getString("password_hash");
-//                int per = resultSet.getInt("per");
-//                user = new User(id, username, password_hash, per, path);
-//                password_hashed = password_hash;
-//            }
-//            
-//            System.out.println("User login: " + user.toString());
-//            if(PasswordUtils.checkPassword(password, password_hashed)){
-                frmWelcome welcome = new frmWelcome(txtUsername.getText());
+        String password_hashed = "";
+        User user = null;
+        try {
+            DBAccess acc = new DBAccess();
+            String query = "SELECT * FROM `users` WHERE username = '" + username_input + "'";
+            ResultSet resultSet = acc.getUser(query);
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
+                String path = resultSet.getString("path");
+                String password_hash = resultSet.getString("password_hash");
+                int per = resultSet.getInt("per");
+                user = new User(id, username, password_hash, per, path);
+                password_hashed = password_hash;
+            }
+            
+            System.out.println("User login: " + user.toString());
+            if(PasswordUtils.checkPassword(password, password_hashed)){
+                frmWelcome welcome = new frmWelcome(user);
                 welcome.setVisible(true);
                 this.setVisible(false);
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Login error!");
-//            }
-//        } catch (SQLException e) {
-//
-//        }
+            }else{
+                JOptionPane.showMessageDialog(null, "Login error!");
+            }
+        } catch (SQLException e) {
+
+        }
 
         
     }//GEN-LAST:event_btnLoginActionPerformed

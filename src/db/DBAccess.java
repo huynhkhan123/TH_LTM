@@ -6,6 +6,7 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,12 +31,16 @@ public class DBAccess {
         
     }
     
-//    public User getUser(String str){
-//        try {
-//            User user = stmt.get
-//        } catch (Exception e) {
-//        }
-//    }
+    public ResultSet getUser(String str){
+        try {
+            PreparedStatement statement = con.prepareStatement(str);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet;
+        } catch (Exception e) {
+            return null;
+        }
+        
+    }
     
     public int Update(String str)
     {
