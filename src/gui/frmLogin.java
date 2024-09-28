@@ -163,7 +163,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+
         String username_input = txtUsername.getText();
         String password = new String(txtPassword.getText());
         String password_hashed = "";
@@ -193,8 +193,6 @@ public class frmLogin extends javax.swing.JFrame {
         } catch (SQLException e) {
 
         }
-
-        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
