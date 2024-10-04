@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,21 +25,21 @@ public class frmLab02_2 extends javax.swing.JFrame {
     public frmLab02_2() {
         initComponents();
     }
-    
+
     public frmLab02_2(int control) {
         initComponents();
         this.setLocationRelativeTo(null);
-        switch(control){
-            case 0:{
+        switch (control) {
+            case 0: {
                 btnWriteBinary.setEnabled(false);
                 btnWriteText.setEnabled(false);
                 break;
             }
-            case 1:{
+            case 1: {
                 btnReadBinary.setEnabled(false);
                 btnReadText.setEnabled(false);
             }
-            case 2:{
+            case 2: {
                 break;
             }
         }
@@ -161,31 +162,86 @@ public class frmLab02_2 extends javax.swing.JFrame {
         byte[] a;
         File file;
         try {
+            // Tạo file từ đường dẫn
             file = new File(txtPath.getText());
+
+            // Mở FileInputStream để đọc dữ liệu từ file
             FileInputStream fi = new FileInputStream(file);
+
+            // Tạo mảng byte với kích thước dữ liệu trong file
             a = new byte[fi.available()];
+
+            // Đọc dữ liệu từ file vào mảng byte
             fi.read(a);
+
+            // Đóng stream sau khi đọc
             fi.close();
-            
-            txtText.setText(new String(a));
+
+            // Chuyển đổi mảng byte sang chuỗi nhị phân
+            String binaryString = new String(a);
+
+            StringBuilder text = new StringBuilder();
+
+            // Đảm bảo chuỗi nhị phân có độ dài là bội số của 8
+            if (binaryString.length() % 8 == 0) {
+                // Chuyển đổi từ chuỗi nhị phân về dạng ký tự văn bản
+                for (int i = 0; i < binaryString.length(); i += 8) {
+                    // Lấy mỗi đoạn 8 bit
+                    String byteString = binaryString.substring(i, i + 8);
+
+                    // Kiểm tra và chuyển đổi chuỗi nhị phân hợp lệ
+                    if (!byteString.isEmpty() && byteString.length() == 8) {
+                        try {
+                            // Chuyển chuỗi nhị phân thành số nguyên
+                            int charCode = Integer.parseInt(byteString, 2);
+                            // Chuyển số nguyên thành ký tự và thêm vào chuỗi kết quả
+                            text.append((char) charCode);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Lỗi khi phân tích chuỗi nhị phân: " + byteString);
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Chuỗi nhị phân không hợp lệ hoặc không đủ 8 bit!");
+            }
+
+            // Hiển thị chuỗi văn bản lên JTextField hoặc JTextArea
+            txtText.setText(text.toString());
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnReadBinaryActionPerformed
 
     private void btnWriteBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteBinaryActionPerformed
         // TODO add your handling code here:
-        byte[] a = new byte[20];
-        File file;
-        char[] s = txtString.getText().toCharArray();
-        for(int i = 0; i < s.length; i++){
-            a[i] = (byte)s[i];
+        // Lấy chuỗi từ JTextField
+        String text = txtString.getText();
+        StringBuilder binaryStringBuilder = new StringBuilder();
+
+        // Chuyển đổi từng ký tự sang mã nhị phân
+        for (char c : text.toCharArray()) {
+            // Chuyển đổi ký tự thành mã nhị phân 8 bit và nối vào chuỗi
+            String binaryString = String.format("%8s", Integer.toBinaryString(c)).replaceAll(" ", "0");
+            binaryStringBuilder.append(binaryString);
         }
-        
+
+        // Chuyển đổi chuỗi nhị phân thành mảng byte (nếu bạn chỉ muốn ghi dạng chuỗi nhị phân)
+        byte[] byteArray = binaryStringBuilder.toString().getBytes();
+
+        File file;
+
         try {
             file = new File(txtPath.getText());
-            FileOutputStream fo = new FileOutputStream(file);
-            fo.write(a);
-            fo.close();
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+            // Ghi dữ liệu chuỗi nhị phân vào file
+            fileOutputStream.write(byteArray);
+
+            // Đóng stream sau khi ghi
+            fileOutputStream.close();
+            JOptionPane.showMessageDialog(null, "File đã được ghi thành công với chuỗi nhị phân!");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -197,6 +253,7 @@ public class frmLab02_2 extends javax.swing.JFrame {
             FileWriter fw = new FileWriter(new File(txtPath.getText()));
             fw.write(txtString.getText());
             fw.close();
+            JOptionPane.showMessageDialog(null, "File đã được ghi thành công !");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -208,12 +265,12 @@ public class frmLab02_2 extends javax.swing.JFrame {
             FileReader fr = new FileReader(new File(txtPath.getText()));
             StringBuffer sb = new StringBuffer();
             char[] ca = new char[5];
-            while(fr.ready()){
+            while (fr.ready()) {
                 int len = fr.read(ca);
                 sb.append(ca, 0, len);
             }
             fr.close();
-            txtText.setText(sb +"");
+            txtText.setText(sb + "");
         } catch (Exception e) {
             e.printStackTrace();
         }

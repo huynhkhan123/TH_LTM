@@ -163,10 +163,12 @@ public class frmRegister extends javax.swing.JFrame {
             if (cboRead.isSelected()) {
                 control = 0;
 
-            } else if (cboWrite.isSelected()) {
+            }
+            if (cboWrite.isSelected()) {
                 control = 1;
 
-            } else {
+            } 
+            if (cboFull.isSelected()) {
                 control = 2;
             }
             DBAccess acc = new DBAccess();
