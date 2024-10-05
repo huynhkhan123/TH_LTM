@@ -72,7 +72,8 @@ public class frmWelcome extends javax.swing.JFrame {
         btnOpenLab202 = new javax.swing.JButton();
         btnOpenLab201 = new javax.swing.JButton();
         btnOpenLab304 = new javax.swing.JButton();
-        btnOpenLab04 = new javax.swing.JButton();
+        btnOpenLab04_1 = new javax.swing.JButton();
+        btnOpenLab04_2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,10 +111,26 @@ public class frmWelcome extends javax.swing.JFrame {
             }
         });
 
-        btnOpenLab04.setText("Open Form Lab4");
-        btnOpenLab04.addActionListener(new java.awt.event.ActionListener() {
+        btnOpenLab04_1.setText("Open Form Lab4_1");
+        btnOpenLab04_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOpenLab04ActionPerformed(evt);
+                btnOpenLab04_1ActionPerformed(evt);
+            }
+        });
+
+        btnOpenLab04_2.setText("Open Form Lab4_2");
+        btnOpenLab04_2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                btnOpenLab04_2AncestorRemoved(evt);
+            }
+        });
+        btnOpenLab04_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenLab04_2ActionPerformed(evt);
             }
         });
 
@@ -138,10 +155,11 @@ public class frmWelcome extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnOpenLab201, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnOpenLab304))
+                            .addComponent(btnOpenLab304)
+                            .addComponent(btnOpenLab04_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnOpenLab04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOpenLab04_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnOpenLab202, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(44, 44, 44))))
         );
@@ -162,8 +180,10 @@ public class frmWelcome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpenLab304)
-                    .addComponent(btnOpenLab04))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(btnOpenLab04_1))
+                .addGap(18, 18, 18)
+                .addComponent(btnOpenLab04_2)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,9 +214,25 @@ public class frmWelcome extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnOpenLab304ActionPerformed
 
-    private void btnOpenLab04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab04ActionPerformed
+    private void btnOpenLab04_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab04_1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnOpenLab04ActionPerformed
+        frmLab04_01 frm = new frmLab04_01();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnOpenLab04_1ActionPerformed
+
+    private void btnOpenLab04_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab04_2ActionPerformed
+        // TODO add your handling code here:
+        frmLab04_02 frm = new frmLab04_02();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnOpenLab04_2ActionPerformed
+
+    private void btnOpenLab04_2AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btnOpenLab04_2AncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpenLab04_2AncestorRemoved
 
     /**
      * @param args the command line arguments
@@ -235,7 +271,8 @@ public class frmWelcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnOpenLab04;
+    private javax.swing.JButton btnOpenLab04_1;
+    private javax.swing.JButton btnOpenLab04_2;
     private javax.swing.JButton btnOpenLab201;
     private javax.swing.JButton btnOpenLab202;
     private javax.swing.JButton btnOpenLab304;

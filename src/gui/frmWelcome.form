@@ -43,10 +43,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnOpenLab201" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnOpenLab304" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnOpenLab04_2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="63" pref="63" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnOpenLab04" max="32767" attributes="0"/>
+                          <Component id="btnOpenLab04_1" max="32767" attributes="0"/>
                           <Component id="btnOpenLab202" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -75,9 +76,11 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnOpenLab304" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnOpenLab04" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOpenLab04_1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnOpenLab04_2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,12 +145,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpenLab304ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnOpenLab04">
+    <Component class="javax.swing.JButton" name="btnOpenLab04_1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Open Form Lab4"/>
+        <Property name="text" type="java.lang.String" value="Open Form Lab4_1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpenLab04ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpenLab04_1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOpenLab04_2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Open Form Lab4_2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="btnOpenLab04_2AncestorRemoved"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpenLab04_2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
