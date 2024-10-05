@@ -60,6 +60,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Password");
 
+        txtUsername.setText("admin");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
@@ -88,6 +89,8 @@ public class frmLogin extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
+
+        txtPassword.setText("admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

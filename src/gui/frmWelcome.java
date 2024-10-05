@@ -69,8 +69,10 @@ public class frmWelcome extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblControl = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnOpenLab202 = new javax.swing.JButton();
+        btnOpenLab201 = new javax.swing.JButton();
+        btnOpenLab304 = new javax.swing.JButton();
+        btnOpenLab04 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,17 +89,31 @@ public class frmWelcome extends javax.swing.JFrame {
         lblControl.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         lblControl.setText("control");
 
-        jButton1.setText("Open Form Lab2_2");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnOpenLab202.setText("Open Form Lab2_2");
+        btnOpenLab202.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnOpenLab202ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Open Form Lab2_1");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnOpenLab201.setText("Open Form Lab2_1");
+        btnOpenLab201.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnOpenLab201ActionPerformed(evt);
+            }
+        });
+
+        btnOpenLab304.setText("Open Form Lab3_4");
+        btnOpenLab304.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenLab304ActionPerformed(evt);
+            }
+        });
+
+        btnOpenLab04.setText("Open Form Lab4");
+        btnOpenLab04.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenLab04ActionPerformed(evt);
             }
         });
 
@@ -120,9 +136,13 @@ public class frmWelcome extends javax.swing.JFrame {
                         .addComponent(lblControl, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnOpenLab201, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnOpenLab304))
                         .addGap(63, 63, 63)
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnOpenLab04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOpenLab202, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(44, 44, 44))))
         );
         layout.setVerticalGroup(
@@ -137,30 +157,46 @@ public class frmWelcome extends javax.swing.JFrame {
                     .addComponent(lblControl))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addComponent(btnOpenLab201)
+                    .addComponent(btnOpenLab202))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOpenLab304)
+                    .addComponent(btnOpenLab04))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnOpenLab202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab202ActionPerformed
         // TODO add your handling code here:
         System.out.println(user.getPer());
         frmLab02_2 frm = new frmLab02_2(user.getPer());
         frm.setVisible(true);
         frm.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnOpenLab202ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnOpenLab201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab201ActionPerformed
         // TODO add your handling code here:
         frmLab02 frm = new frmLab02();
         frm.setVisible(true);
         frm.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnOpenLab201ActionPerformed
+
+    private void btnOpenLab304ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab304ActionPerformed
+        // TODO add your handling code here:
+        frmLab03_4 frm = new frmLab03_4();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnOpenLab304ActionPerformed
+
+    private void btnOpenLab04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab04ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpenLab04ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,8 +235,10 @@ public class frmWelcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnOpenLab04;
+    private javax.swing.JButton btnOpenLab201;
+    private javax.swing.JButton btnOpenLab202;
+    private javax.swing.JButton btnOpenLab304;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblControl;
