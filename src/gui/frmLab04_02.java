@@ -20,7 +20,7 @@ public class frmLab04_02 extends javax.swing.JFrame {
     public frmLab04_02() {
         initComponents();
         this.setBackground(Color.WHITE);
-        
+        pnlMain.setBackground(Color.WHITE);
     }
 
     /**

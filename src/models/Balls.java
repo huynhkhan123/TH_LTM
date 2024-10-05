@@ -33,6 +33,8 @@ public class Balls extends Thread{
      
     public void draw() {
         Graphics graphic = box.getGraphics();
+        color = randomColor();
+        graphic.setColor(color);
         graphic.fillOval(x, y, XSIZE, YSIZE);
     }
     
