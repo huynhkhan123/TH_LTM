@@ -5,6 +5,7 @@
  */
 package gui;
 
+import gui_lab5.frmTCPClient;
 import models.User;
 
 /**
@@ -74,6 +75,7 @@ public class frmWelcome extends javax.swing.JFrame {
         btnOpenLab304 = new javax.swing.JButton();
         btnOpenLab04_1 = new javax.swing.JButton();
         btnOpenLab04_2 = new javax.swing.JButton();
+        btnOpenLab05_1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,9 +122,9 @@ public class frmWelcome extends javax.swing.JFrame {
 
         btnOpenLab04_2.setText("Open Form Lab4_2");
         btnOpenLab04_2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 btnOpenLab04_2AncestorRemoved(evt);
@@ -134,16 +136,17 @@ public class frmWelcome extends javax.swing.JFrame {
             }
         });
 
+        btnOpenLab05_1.setText("Open Form Lab5_1");
+        btnOpenLab05_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenLab05_1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUsername)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,10 +161,18 @@ public class frmWelcome extends javax.swing.JFrame {
                             .addComponent(btnOpenLab304)
                             .addComponent(btnOpenLab04_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnOpenLab04_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnOpenLab202, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnOpenLab04_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnOpenLab202, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnOpenLab05_1))
                         .addGap(44, 44, 44))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsername)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,8 +193,10 @@ public class frmWelcome extends javax.swing.JFrame {
                     .addComponent(btnOpenLab304)
                     .addComponent(btnOpenLab04_1))
                 .addGap(18, 18, 18)
-                .addComponent(btnOpenLab04_2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOpenLab04_2)
+                    .addComponent(btnOpenLab05_1))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,6 +247,14 @@ public class frmWelcome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOpenLab04_2AncestorRemoved
 
+    private void btnOpenLab05_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenLab05_1ActionPerformed
+        // TODO add your handling code here:
+        frmTCPClient frm = new frmTCPClient();
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnOpenLab05_1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +294,7 @@ public class frmWelcome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOpenLab04_1;
     private javax.swing.JButton btnOpenLab04_2;
+    private javax.swing.JButton btnOpenLab05_1;
     private javax.swing.JButton btnOpenLab201;
     private javax.swing.JButton btnOpenLab202;
     private javax.swing.JButton btnOpenLab304;
