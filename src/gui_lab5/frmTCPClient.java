@@ -120,7 +120,7 @@ public class frmTCPClient extends javax.swing.JFrame {
         String result =  "";
         try {
             socket = new Socket(HOST, PORT);
-            out = new PrintWriter(socket.getOutputStream());
+            out = new PrintWriter(socket.getOutputStream(),true);
             in = new Scanner(socket.getInputStream());
             result = in.nextLine().trim();
             txtResult.setText(result);

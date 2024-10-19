@@ -252,7 +252,6 @@ public class frmWelcome extends javax.swing.JFrame {
         frmTCPClient frm = new frmTCPClient();
         frm.setVisible(true);
         frm.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_btnOpenLab05_1ActionPerformed
 
     /**
