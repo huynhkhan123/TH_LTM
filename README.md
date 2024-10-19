@@ -1,1 +1,2 @@
-"# TH_LTM" 
+- Run the server first in the AppMain.java file
+- Run the client in the App.java file
